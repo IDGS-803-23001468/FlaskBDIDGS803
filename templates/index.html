@@ -31,85 +31,34 @@
                 </tr>
             </thead>
             <tbody>
+                {%for alum in alumno%}
                 <tr class="bg-neutral-primary border-b border-default">
                     <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                        Gilberto
+                        {{ alum.nombre }}
                     </th>
                     <td class="px-6 py-4">
-                        Sánchez
+                        {{ alum.apaterno }}
                     </td>
                     <td class="px-6 py-4">
-                        carlos.ramirez@gmail.com
-
+                        {{ alum.email }}
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                    <a href="modificar?id={{ alum.id }}" class="font-medium text-fg-brand hover:underline">
+                        Editar
+                    </a>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                    <a href="detalles?id={{ alum.id }}" class="font-medium text-fg-brand hover:underline">
+                        Detalles
+                    </a>
                     </td>
                     <td class="px-6 py-4">
-                        
-                    <a href="Alumnos" class="font-medium text-fg-brand hover:underline">Editar</a>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Detalles</a>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Eliminar</a>
-
+                    <a href="eliminar?id={{ alum.id }}" class="font-medium text-fg-brand hover:underline">
+                        Eliminar
+                    </a>
                     </td>
                 </tr>
-                <tr class="bg-neutral-primary border-b border-default">
-                    <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                        Pablo
-                    </th>
-                    <td class="px-6 py-4">
-                        Ramírez
-                    </td>
-                    <td class="px-6 py-4">
-                        fernanda.lopez@gmail.com
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="Alumnos" class="font-medium text-fg-brand hover:underline">Editar</a>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Detalles</a>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Eliminar</a>
-
-                    </td>
-                </tr>
-                <tr class="bg-neutral-primary">
-                    <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                        Diego
-                    </th>
-                    <td class="px-6 py-4">
-                        Bolaños
-                    </td>
-                    <td class="px-6 py-4">
-                        diego.martinez@gmail.com
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="Alumnos" class="font-medium text-fg-brand hover:underline">Editar</a>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Detalles</a>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Eliminar</a>
-
-                    </td>
-                </tr>
+                {%endfor%}
             </tbody>
         </table>
     </div>

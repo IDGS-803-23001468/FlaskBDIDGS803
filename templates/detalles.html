@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block container %} {% from "_macros.html" import campoNuevo %}
+
+<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+     <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='src/regresar.png') }}"
+             alt="Regresar"
+             class="w-16 mx-auto mb-4 hover:scale-110 transition cursor-pointer">
+    </a>
+    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Detalles del Alumno</h5>
+    <p class="text-body mb-6">Nombre: {{ nombre }}</p>
+    <p class="text-body mb-6">Apellido Paterno: {{ apaterno }}</p>
+    <p class="text-body mb-6">Email: {{ email }}</p>
+
+</div>
+
+{% endblock %}
