@@ -1,67 +1,78 @@
-{% extends "layout.html" %} 
-{% block container %} 
+{% extends "layout.html" %}
+{% block container %}
 
+<div class="py-32 relative overflow-x-auto">
 
+    <div class="flex gap-4 mb-6">
 
-    <div class="py-32 relative overflow-x-auto">
-    
-    <a href="Alumnos" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Leer mas
-    </a>
-        <table class="w-full text-sm text-left rtl:text-right text-body">
-            <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
-                <tr>
-                    <th scope="col" class="px-6 py-3 font-medium">
-                        Nombre
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-medium">
-                        APaterno
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-medium">
-                        Correo
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-medium">
-                        Editar
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-medium">
-                        Detalles
-                    </th>
-                    <th scope="col" class="px-6 py-3 font-medium">
-                        Eliminar
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {%for alum in alumno%}
-                <tr class="bg-neutral-primary border-b border-default">
-                    <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                        {{ alum.nombre }}
-                    </th>
-                    <td class="px-6 py-4">
-                        {{ alum.apaterno }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ alum.email }}
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                    <a href="modificar?id={{ alum.id }}" class="font-medium text-fg-brand hover:underline">
-                        Editar
-                    </a>
-                    </td>
-                    <td class="px-6 py-4 text-right">
-                    <a href="detalles?id={{ alum.id }}" class="font-medium text-fg-brand hover:underline">
-                        Detalles
-                    </a>
-                    </td>
-                    <td class="px-6 py-4">
-                    <a href="eliminar?id={{ alum.id }}" class="font-medium text-fg-brand hover:underline">
-                        Eliminar
-                    </a>
-                    </td>
-                </tr>
-                {%endfor%}
-            </tbody>
-        </table>
+        <a href="Alumnos" class="text-white bg-green-600 hover:bg-green-700 
+                  focus:ring-4 focus:ring-green-300 
+                  font-medium rounded-base text-sm px-5 py-2.5">
+            + Nuevo Alumno
+        </a>
+
+        <a href="Alumnos" class="text-white bg-brand hover:bg-brand-strong 
+                  focus:ring-4 focus:ring-brand-medium 
+                  font-medium rounded-base text-sm px-5 py-2.5">
+            Leer más
+        </a>
+
     </div>
 
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+            <tr>
+                <th class="px-6 py-3 font-medium">Nombre</th>
+                <th class="px-6 py-3 font-medium">Apellido Paterno</th>
+                <th class="px-6 py-3 font-medium">Correo</th>
+                <th class="px-6 py-3 font-medium text-center">Editar</th>
+                <th class="px-6 py-3 font-medium text-center">Detalles</th>
+                <th class="px-6 py-3 font-medium text-center">Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for alum in alumno %}
+            <tr class="bg-neutral-primary border-b border-default">
+
+                <th class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                    {{ alum.nombre }}
+                </th>
+
+                <td class="px-6 py-4">
+                    {{ alum.apaterno }}
+                </td>
+
+                <td class="px-6 py-4">
+                    {{ alum.email }}
+                </td>
+
+                <td class="px-6 py-4 text-center">
+                    <a href="modificar?id={{ alum.id }}" class="text-white bg-blue-600 hover:bg-blue-700 
+                              px-4 py-2 rounded-base text-sm">
+                        Editar
+                    </a>
+                </td>
+
+                <td class="px-6 py-4 text-center">
+                    <a href="detalles?id={{ alum.id }}" class="text-white bg-indigo-600 hover:bg-indigo-700 
+                              px-4 py-2 rounded-base text-sm">
+                        Detalles
+                    </a>
+                </td>
+
+                <td class="px-6 py-4 text-center">
+                    <a href="eliminar?id={{ alum.id }}" class="text-white bg-red-600 hover:bg-red-700 
+                              px-4 py-2 rounded-base text-sm">
+                        Eliminar
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
 
 {% endblock %}
