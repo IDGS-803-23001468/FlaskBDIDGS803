@@ -29,8 +29,9 @@ def alumnos():
 	create_form=forms.UserForm(request.form)
 	if request.method=='POST':
 		alum=Alumnos(nombre=create_form.nombre.data,
-					apaterno=create_form.apaterno.data,
-					email=create_form.email.data)
+					apellidos=create_form.apellidos.data,
+					email=create_form.email.data,
+					telefono=create_form.telefono.data)
 		db.session.add(alum)
 		db.session.commit()
 		return redirect(url_for('index'))
@@ -44,9 +45,10 @@ def detalles():
 		alum1=db.session.query(Alumnos).filter(Alumnos.id==id).first()
 		id=request.args.get('id')
 		nombre=alum1.nombre
-		apaterno=alum1.apaterno
+		apellidos=alum1.apellidos
 		email=alum1.email
-		return render_template("detalles.html", form=create_form, nombre=nombre, apaterno=apaterno, email=email)
+		telefono=alum1.telefono
+		return render_template("detalles.html", form=create_form, nombre=nombre, apellidos=apellidos, email=email, telefono=telefono)
 
 
 @app.route("/modificar", methods=['GET', 'POST'])
@@ -57,14 +59,16 @@ def modificar():
 		alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
 		create_form.id.data = request.args.get('id')
 		create_form.nombre.data = alum1.nombre
-		create_form.apaterno.data = alum1.apaterno
+		create_form.apellidos.data = alum1.apellidos
 		create_form.email.data = alum1.email
+		create_form.telefono.data=alum1.telefono
 	if request.method == 'POST':
 		id = create_form.id.data
 		alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
 		alum1.nombre = create_form.nombre.data
-		alum1.apaterno = create_form.apaterno.data
+		alum1.apellidos = create_form.apellidos.data
 		alum1.email = create_form.email.data
+		alum1.telefono=create_form.telefono.data
 		db.session.add(alum1)
 		db.session.commit()
 		return redirect(url_for('index'))
@@ -79,8 +83,9 @@ def eliminar():
 		alum1=db.session.query(Alumnos).filter(Alumnos.id==id).first()
 		create_form.id.data=request.args.get('id')
 		create_form.nombre.data=alum1.nombre
-		create_form.apaterno.data=alum1.apaterno
+		create_form.apellidos.data=alum1.apellidos
 		create_form.email.data=alum1.email
+		create_form.telefono.data=alum1.telefono
 	if request.method == 'POST':
 		id=create_form.id.data
 		alum = Alumnos.query.get(id)
@@ -96,7 +101,6 @@ def page_not_found(e):
 
 if __name__ == '__main__':
 	csrf.init_app(app)
-	db.init_app(app)
 	with app.app_context():
 		db.create_all()
 	app.run(debug=True)

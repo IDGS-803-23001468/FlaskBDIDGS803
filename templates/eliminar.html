@@ -16,13 +16,19 @@
     placeholder:text-body") }}
   </div>
   <div class="mb-5">
-    {{ macros.campoNuevo(form.apaterno, class="bg-neutral-secondary-medium
+    {{ macros.campoNuevo(form.apellidos, class="bg-neutral-secondary-medium
     border border-default-medium text-heading text-sm rounded-base
     focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs
     placeholder:text-body") }}
   </div>
   <div class="mb-5">
     {{ macros.campoNuevo(form.email, class="bg-neutral-secondary-medium border
+    border-default-medium text-heading text-sm rounded-base focus:ring-brand
+    focus:border-brand block w-full px-3 py-2.5 shadow-xs
+    placeholder:text-body") }}
+  </div>
+  <div class="mb-5">
+    {{ macros.campoNuevo(form.telefono, class="bg-neutral-secondary-medium border
     border-default-medium text-heading text-sm rounded-base focus:ring-brand
     focus:border-brand block w-full px-3 py-2.5 shadow-xs
     placeholder:text-body") }}
@@ -35,7 +41,12 @@
   </div>
   <a href="index" 
   class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4">
-    Submit
+    Eliminar
+  </a>
+  <a href="index" 
+  class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 bg-blue-600 hover:bg-blue-700
+">
+    Regresar
   </a>
 </form>
 </div>
