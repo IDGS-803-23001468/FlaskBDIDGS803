@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block container %} {% from "_macros.html" import campoNuevo %}
+
+<div class="w-full min-h-screen bg-blue-100 flex items-center justify-center">
+  <div class="max-w-md mx-auto mt-20 bg-white p-6 rounded shadow">
+
+    <h2 class="text-xl font-semibold mb-6 text-center">Detalles del Maestro</h2>
+    <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+      <a href="{{ url_for('maestros.listado_maestros') }}">
+        <img src="{{ url_for('static', filename='src/regresar.png') }}" alt="Regresar"
+          class="w-16 mx-auto mb-4 hover:scale-110 transition cursor-pointer">
+      </a>
+      <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Detalles del Maestro</h5>
+      <p class="text-body mb-6">Nombre: {{ nombre }}</p>
+      <p class="text-body mb-6">Apellidos: {{ apellidos }}</p>
+      <p class="text-body mb-6">Especialidad: {{ especialidad }}</p>
+      <p class="text-body mb-6">Email: {{ email }}</p>
+
+      <a href="maestros" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 bg-blue-600 hover:bg-blue-700
+    ">
+        Regresar
+      </a>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
